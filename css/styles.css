@@ -172,7 +172,7 @@ input:active {
 
 .hero > div:first-child > img {
     max-width: 300px;
-    opacity: 75%;
+    opacity: 100%;
 }
 
 .hero > div:nth-child(2) {
