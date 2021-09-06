@@ -43,12 +43,27 @@ $(function() {
         $("#trackerResults").html('<h3>Results:</h3><div id="trackerProgress" class="progress"><span width="100%"></span></div><div class="flex gaps grid-10"><div class="box col-7"><h5>Ronin Address</h5></div><div class="box col-2"><h5>Name</h5></div><div class="box col-1"><h5>SLP</h5></div></div>');
     }
     
-    function htmlSLPResult(address, name, slp) {
+    function htmlSLPResult(address, name, slp, i) {
         completed++;
         $("#trackerResults").append('<div class="flex gaps grid-10"><div class="box col-7">' + address + '</div><div class="box col-2">' + name + '</div><div class="box col-1">' + slp + '</div></div>');
         if(completed >= ronin.length) {
             $("#trackerProgress").remove();
+        } else {
+            setTimeout(function() {
+                fetchData(i+1);
+            }, 1000);
         }
+    }
+    
+    function fetchData(i) {
+        let add = addr[i];
+        getSLP(add, (slp) => {
+            slp = slp.total - slp.claimable_total;
+            getName(add, (name) => {
+                name = name.data.publicProfileWithRoninAddress.name;
+                htmlSLPResult(add, name, slp, i);
+            });
+        });
     }
    
     $("#btnFetch").click((e) => {
@@ -62,17 +77,7 @@ $(function() {
                     addr[i] = roninToAddr(ronin[i]);
                 }
                 htmlProgress();
-                for(let i=0; i<addr.length; i++) {
-                    let add = addr[i];
-                    getSLP(add, (slp) => {
-                        slp = slp.total - slp.claimable_total;
-                        getName(add, (name) => {
-                            name = name.data.publicProfileWithRoninAddress.name;
-                            htmlSLPResult(add, name, slp);
-                        });
-                    });
-                    
-                }
+                fetchData(0);
             }
             
         } catch(e) {
