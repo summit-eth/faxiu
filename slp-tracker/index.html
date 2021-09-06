@@ -44,12 +44,15 @@
             <div class="flex wrap grid-8">
                 <div class="box col-3">
                     <div class="tracker-in">
-                        <textarea placeholder="ronin:c1f250c4605f0f78c2430951f16520a14fc7bb5a"></textarea>
-                        <button>fetch slp data</button>
+                        <textarea id="txtIskoList" placeholder="ronin:c1f250c4605f0f78c2430951f16520a14fc7bb5a"></textarea>
+                        <button id="btnFetch">fetch slp data</button>
                     </div>
                 </div>
-                <div class="box col-3 tracker-out">
-                    <h3>Results:</h3>
+                <div class="box col-3 tracker-out" id="trackerResults">
+                    <!--h3>Results:</h3>
+                    <div class="progress">
+                        <span width="100%"></span>
+                    </div>
                     <div class="flex gaps grid-10">
                         <div class="box col-7">
                             <h5>Ronin Address</h5>
@@ -93,7 +96,7 @@
                         <div class="box col-1">
                             1232 SLP
                         </div>
-                    </div>
+                    </div-->
                 </div>
             </div>
         </div>
@@ -103,5 +106,6 @@
         <h6>Fake Axie University <a href="https://faxiuniversity.com">(https://faxiuniversity.com)</a> &copy; 2021</h6>
     </div>
 <script src="js/jquery.min.js"></script>
+<script src="js/slptracker.js"></script>
 </body>
 </html>

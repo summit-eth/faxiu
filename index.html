@@ -29,10 +29,10 @@
             </div>
             <div>
                 <!--button>swap faxi/bnb</button-->
-                <button>iskolarship</button>
-                <button>team builder</button>
-                <button>sell slp</button>
-                <button>slp tracker</button>
+                <button onclick="open('team-builder')">team builder</button>
+                <button onclick="open('slp-tracker')">slp tracker</button>
+                <button onclick="open('iskolarship')">iskolarship</button>
+                <button onclick="open('sell-slp')">sell slp</button>
             </div>
         </div>
     </div>
@@ -138,5 +138,10 @@
     <div class="swap">
         
     </div>
+<script type="text/javascript">
+function open(link) {
+    top.location.href="https://faxiuniversity.com/" + link;
+};
+</script>
 </body>
 </html>
