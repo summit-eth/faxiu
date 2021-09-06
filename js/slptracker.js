@@ -51,7 +51,7 @@ $(function() {
         } else {
             setTimeout(function() {
                 fetchData(i+1);
-            }, 500);
+            }, 1000);
         }
     }
     
